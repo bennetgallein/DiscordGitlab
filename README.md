@@ -13,8 +13,8 @@ You can either copy the PHP file directly into your project or _preferable_ just
 
 It is fairly easy to use. I'll throw in an example.
 
-```php
-comming soon
+```md
+coming soon
 ```
 
 ## License
