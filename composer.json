@@ -2,6 +2,7 @@
     "name": "bennetgallein/discord-gitlab",
     "description": "A package which enables you to create webhooks for gitlab",
     "type": "library",
+    "license": "GPL-3.0",
     "require": {
         "nopjmp/discord-webhooks": "^0.2.2"
     },
