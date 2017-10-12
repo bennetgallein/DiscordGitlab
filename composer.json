@@ -1,6 +1,6 @@
 {
-    "name": "bennetgallein/paladins-php",
-    "description": "A wrapper for the Paladins API",
+    "name": "bennetgallein/discord-gitlab",
+    "description": "A package which enables you to create webhooks for gitlab",
     "type": "library",
     "license": "GPL-3.0",
     "authors": [
