@@ -4,6 +4,8 @@ namespace DiscordGitlab;
 use \DiscordWebhooks\Client;
 use \DiscordWebhooks\Embed;
 
+use \DiscordGitlab\Types\Commit;
+
 class GitLab {
 
     private $url;
@@ -13,15 +15,13 @@ class GitLab {
      */
     public function __construct($url, $input) {
         $this->url = $url;
-
         $action = json_decode($input, true);
 
-        foreach ($action['commits'] as $commit) {
-            $webhook = new Client($url);
-            $embed = new Embed();
+        $webhook = new Client($url);
 
-            $embed->description("```" . $commit['id'] . "```")->color("3447003*");
-            $webhook->username("B-Hook")->message("New commit")->embed($embed)->send();
+        if (isset($action['commits'])) {
+            $embed = new Commit($action);
         }
+        $webhook->username("GitLab Webhook")->embed($embed->getEmbedObject())->send();
     }
 }
