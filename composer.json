@@ -1,20 +1,13 @@
 {
-    "name": "bennetgallein/discord-gitlab",
-    "description": "A package which enables you to create webhooks for gitlab",
+    "name": "bennetgallein/paladins-php",
+    "description": "A wrapper for the Paladins API",
     "type": "library",
     "license": "GPL-3.0",
-    "require": {
-        "nopjmp/discord-webhooks": "^0.2.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "DiscordGitlab\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Bennet Gallein",
             "email": "bennet@intranetproject.net"
         }
-    ]
+    ],
+    "require": {}
 }
