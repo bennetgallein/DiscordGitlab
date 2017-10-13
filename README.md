@@ -30,7 +30,8 @@ $gitlab = new \DiscordGitlab\GitLab("WebhookURL_HERE", $input);
 Now, just upload to a webserver and paste the file's path over at GitLab. And you are now receving Discord Notifications every time something gets pushed!
 
 ## Changelog
-
+### v2.0
+Push Event and Issues are now working as expected.
 ### v1.0
 First release, enables Notifications for push Event.
 ## License
