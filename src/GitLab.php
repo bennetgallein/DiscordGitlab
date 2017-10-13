@@ -5,6 +5,7 @@ use \DiscordWebhooks\Client;
 use \DiscordWebhooks\Embed;
 
 use \DiscordGitlab\Types\Commit;
+use \DiscordGitlab\Types\Issue;
 
 class GitLab {
 
@@ -21,6 +22,11 @@ class GitLab {
 
         if (isset($action['commits'])) {
             $embed = new Commit($action);
+        }
+        if (isset($action['object_kind'])) {
+            if ($action['object_kind'] === "issue") {
+                $embed = new Issue($action);
+            }
         }
         $webhook->username("GitLab Webhook")->embed($embed->getEmbedObject())->send();
     }
