@@ -6,6 +6,7 @@ use \DiscordWebhooks\Embed;
 
 use \DiscordGitlab\Types\Commit;
 use \DiscordGitlab\Types\Issue;
+use \DiscordGitlab\Types\PullReq;
 
 class GitLab {
 
@@ -26,6 +27,9 @@ class GitLab {
         if (isset($action['object_kind'])) {
             if ($action['object_kind'] === "issue") {
                 $embed = new Issue($action);
+            }
+            if ($action['object_kind'] === "merge_request") {
+                $embed = new PullReq($action);
             }
         }
         $webhook->username("GitLab Webhook")->embed($embed->getEmbedObject())->send();
