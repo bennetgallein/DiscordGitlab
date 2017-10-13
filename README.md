@@ -6,6 +6,10 @@ This is a library to Discord and GitLab to have the same beautiful Notifications
 
 You can either copy the PHP file directly into your project or _preferable_ just use composer.
 
+## The Scope of this project
+
+So this is a library for composer, right. I'm planning on building a Website that enables even unexperienced users to hook up Gitlab (and maybe other services) to Discord. But that's a thing for the future.
+
 #### Composer require command
 `composer require bennetgallein/discord-gitlab`
 
