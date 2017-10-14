@@ -24,7 +24,10 @@ namespace DiscordGitlab;
 include('vendor/autoload.php');
 
 $input = file_get_contents('php://input');
-$gitlab = new \DiscordGitlab\GitLab("WebhookURL_HERE", $input);
+
+$secret = "YOUR GITLAB SECRET HERE"; // If you didn't
+
+$gitlab = new \DiscordGitlab\GitLab("WebhookURL_HERE", $input, $secret);
 
 ```
 Now, just upload to a webserver and paste the file's path over at GitLab. And you are now receving Discord Notifications every time something gets pushed!

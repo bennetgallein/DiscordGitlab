@@ -15,23 +15,29 @@ class GitLab {
      * @param string $url The Discord Webhook URL
      *
      */
-    public function __construct($url, $input) {
+    public function __construct($url, $input, $secret = '') {
+
+        $webhook = new Client($url);
+        $secrettoken = isset($_SERVER['HTTP_X_GITLAB_TOKEN']) ? $_SERVER['HTTP_X_GITLAB_TOKEN'] : '';
+
+        if ($secret !== $secrettoken) {
+            $embed = new Embed();
+            $embed->color('15158332')->title("ERROR!")->description("Your Tokens are not the same. Check them!");
+            $webhook->username("ERROR")->embed($embed)->send();
+            return;
+        }
         $this->url = $url;
         $action = json_decode($input, true);
 
-        $webhook = new Client($url);
-
-        if (isset($action['commits'])) {
+        if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Push Hook") {
             $embed = new Commit($action);
         }
-        if (isset($action['object_kind'])) {
-            if ($action['object_kind'] === "issue") {
-                $embed = new Issue($action);
-            }
-            if ($action['object_kind'] === "merge_request") {
-                $embed = new PullReq($action);
-            }
+        if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Issue Hook") {
+            $embed = new Issue($action);
         }
-        $webhook->username("GitLab Webhook")->embed($embed->getEmbedObject())->send();
+        if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Merge Request Hook") {
+            $embed = new PullReq($action);
+        }
+        $webhook->embed($embed->getEmbedObject())->send();
     }
 }

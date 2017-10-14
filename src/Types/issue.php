@@ -6,7 +6,7 @@ use \DiscordWebhooks\Embed;
 class Issue {
 
     private $embedcontent;
-    private $color = '15158332';
+    private $color = '15844367';
     private $author;
     private $title;
     private $url;
