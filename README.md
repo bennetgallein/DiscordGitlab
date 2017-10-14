@@ -43,4 +43,6 @@ The project is MIT licensed. To read the full license, open [LICENSE.md](LICENSE
 
 ## Contributing
 
+[Here](https://docs.gitlab.com/ce/user/project/integrations/webhooks.html) are the official Docs by GitLab in case you need them.
+
 Pull requests and issues are open!
