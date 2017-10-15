@@ -13,7 +13,7 @@ class Issue {
 
     public function __construct($data) {
         $this->author = $data['user']['name'];
-        $this->title = $data['object_attributes']['title'];
+        $this->title = "[" . $data['project']['name'] . "] " . $data['object_attributes']['title'];
         $this->embedcontent = $data['object_attributes']['description'];
     }
     public function getEmbedObject() {
