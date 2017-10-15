@@ -15,11 +15,11 @@ class PullReq {
         $this->author = $data['user']['name'];
         if ($data['object_attributes']['action'] === "open") {
             $this->color = '3066993';
-            $this->title = "new pull request: " . $data['object_attributes']['id'];
+            $this->title = "new Merge request: " . $data['object_attributes']['id'];
         }
         if ($data['object_attributes']['action'] === "closed") {
             $this->color = '8359053';
-            $this->title = "closed merge request: " . $data['object_attributes']['id'];
+            $this->title = "closed Merge request: " . $data['object_attributes']['id'];
         }
         $this->embedcontent = "[" . $data['object_attributes']['target']['name'] . "](" . $data['object_attributes']['url'] . "):" . $data['object_attributes']['id'] . " - " . $data['object_attributes']['title'];
     }
