@@ -15,7 +15,7 @@ class PullReq {
         $this->author = $data['user']['name'];
         if ($data['object_attributes']['action'] === "open") {
             $this->color = '3066993';
-            $this->title = "new merge request: " . $data['object_attributes']['id'];
+            $this->title = "new pull request: " . $data['object_attributes']['id'];
         }
         if ($data['object_attributes']['action'] === "closed") {
             $this->color = '8359053';
