@@ -7,6 +7,7 @@ use \DiscordWebhooks\Embed;
 use \DiscordGitlab\Types\Commit;
 use \DiscordGitlab\Types\Issue;
 use \DiscordGitlab\Types\PullReq;
+use \DiscordGitlab\Types\Tag;
 
 class GitLab {
 
@@ -37,6 +38,9 @@ class GitLab {
         }
         if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Merge Request Hook") {
             $embed = new PullReq($action);
+        }
+        if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Tag Push Hook") {
+            $embed = new Tag($action);
         }
         $webhook->embed($embed->getEmbedObject())->send();
     }

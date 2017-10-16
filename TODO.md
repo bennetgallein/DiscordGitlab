@@ -10,4 +10,4 @@
     + Comment on code snippet (not quite sure about this one)
 + Wiki Page events
 + Pipeline events
-+ (maybe) Tag events
++ ~~(maybe) Tag events~~
