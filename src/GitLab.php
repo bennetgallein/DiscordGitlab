@@ -1,6 +1,7 @@
 <?php
 namespace DiscordGitlab;
 
+use DiscordGitlab\Types\Pipeline;
 use \DiscordWebhooks\Client;
 use \DiscordWebhooks\Embed;
 
@@ -12,10 +13,6 @@ use \DiscordGitlab\Types\Tag;
 class GitLab {
 
     private $url;
-    /**
-     * @param string $url The Discord Webhook URL
-     *
-     */
     public function __construct($url, $input, $secret = '') {
 
         $webhook = new Client($url);
@@ -41,6 +38,9 @@ class GitLab {
         }
         if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Tag Push Hook") {
             $embed = new Tag($action);
+        }
+        if ($_SERVER['HTTP_X_GITLAB_EVENT'] === "Pipeline Hook") {
+            $embed = new Pipeline($action);
         }
         $webhook->embed($embed->getEmbedObject())->send();
     }
